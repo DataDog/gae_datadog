@@ -4,7 +4,7 @@
 
 ```
 cd $MY_GAE_APPLICATION
-git clone https://github.com/DataDog/gae-datadog
+git clone https://github.com/DataDog/gae_datadog
 ```
 
 ## app.yaml setup
@@ -15,12 +15,8 @@ handlers:
 # Should probably be at the beginning of the list
 # so it's not clobbered by a catchall route
 - url: /datadog
-  script: gae-datadog/$framework/datadog.app
+  script: gae_datadog/datadog.app
 ```
-
-Depending on the framework you are using, set the `$framework` variable accordingly:
-* `flask`
-* ...
 
 Set your token, generated from the [integration settings](https://app.datadoghq.com/account/settings#integrations/google_app_engine) on Datadog
 ```yaml
