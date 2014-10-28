@@ -18,7 +18,7 @@ handlers:
   script: gae_datadog.datadog.app
 ```
 
-Set your token, generated from the [integration settings](https://app.datadoghq.com/account/settings#integrations/google_app_engine) on Datadog
+Set your API key from the [integration settings](https://app.datadoghq.com/account/settings#integrations/google_app_engine) on Datadog
 ```yaml
 env_variables:
     DATADOG_API_KEY: 'YOURAPIKEY'
