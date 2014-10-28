@@ -21,5 +21,5 @@ handlers:
 Set your token, generated from the [integration settings](https://app.datadoghq.com/account/settings#integrations/google_app_engine) on Datadog
 ```yaml
 env_variables:
-    DATADOG_AUTH_TOKEN: 'CHANGEME'
+    DATADOG_AUTH_TOKEN: 'YOURAPIKEY'
 ```
