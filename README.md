@@ -15,7 +15,7 @@ handlers:
 # Should probably be at the beginning of the list
 # so it's not clobbered by a catchall route
 - url: /datadog
-  script: gae_datadog/datadog.app
+  script: gae_datadog.datadog.app
 ```
 
 Set your token, generated from the [integration settings](https://app.datadoghq.com/account/settings#integrations/google_app_engine) on Datadog
