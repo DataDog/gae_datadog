@@ -16,8 +16,8 @@ import webapp2
 
 class DatadogStats(webapp2.RequestHandler):
     def get(self):
-        auth_token = self.request.get('auth_token')
-        if auth_token != os.environ.get('DATADOG_AUTH_TOKEN'):
+        api_key = self.request.get('api_key')
+        if api_key != os.environ.get('DATADOG_API_KEY'):
             self.abort(403)
 
         FLAVORS = ['requests', 'services', 'all']
