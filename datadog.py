@@ -76,7 +76,7 @@ class DatadogStats(webapp2.RequestHandler):
             stats['task_queue'] = get_task_queue_stats(self.request.get('task_queues'))
 
         if flavor == 'requests' or flavor == 'all':
-            stats['requests'] = get_request_stats(self.request.get('after'))
+            stats['requests'] = get_request_stats(self.request.get('after', None))
 
         self.response.headers['Content-Type'] = 'application/json'
         self.response.write(json.dumps(stats))
