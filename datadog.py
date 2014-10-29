@@ -73,7 +73,7 @@ class DatadogStats(webapp2.RequestHandler):
         if flavor == 'services' or flavor == 'all':
             stats['datastore'] = db_stats.GlobalStat.all().get()
             stats['memcache'] = memcache.get_stats()
-            stats['task_queue'] = get_task_queue_stats(self.request.get('task_queues'))
+            stats['task_queue'] = get_task_queue_stats(self.request.get('task_queues', None))
 
         if flavor == 'requests' or flavor == 'all':
             stats['requests'] = get_request_stats(self.request.get('after', None))
