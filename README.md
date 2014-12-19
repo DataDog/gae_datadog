@@ -1,4 +1,4 @@
-# Use Datadog on GAE
+# Use Datadog on Google App Engine
 
 ## Download the Datadog GAE module
 
@@ -23,3 +23,7 @@ Set your API key from the [integration settings](https://app.datadoghq.com/accou
 env_variables:
     DATADOG_API_KEY: 'YOURAPIKEY'
 ```
+
+## Use custom metrics with dogapi
+
+This [gist](https://gist.github.com/LeoCavaille/bb4379d628db2fa6e102) will show you an example of how to use custom metrics in your code.
