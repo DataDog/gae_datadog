@@ -3,16 +3,16 @@ from collections import defaultdict
 from datetime import datetime, timedelta
 import os
 import time
-
-# 3p
-import simplejson as json
+import json
 
 # google api
 from google.appengine.api import app_identity, logservice, memcache, taskqueue
 from google.appengine.ext.db import stats as db_stats
+from google.appengine.ext.db import to_dict
 
 # framework
 import webapp2
+
 
 class DatadogStats(webapp2.RequestHandler):
     def get(self):
@@ -44,6 +44,7 @@ class DatadogStats(webapp2.RequestHandler):
                 }
                 q_stats.append(stats)
             return q_stats
+
         def get_request_stats(after=None):
             if after is None:
                 one_minute_ago = datetime.utcnow() - timedelta(minutes=1)
@@ -71,7 +72,10 @@ class DatadogStats(webapp2.RequestHandler):
             'project_name': app_identity.get_application_id()
         }
         if flavor == 'services' or flavor == 'all':
-            stats['datastore'] = db_stats.GlobalStat.all().get()
+            global_stat = db_stats.GlobalStat.all().get()
+            if global_stat is not None:
+                stats['datastore'] = to_dict(global_stat)
+
             stats['memcache'] = memcache.get_stats()
             stats['task_queue'] = get_task_queue_stats(self.request.get('task_queues', None))
 
@@ -81,6 +85,7 @@ class DatadogStats(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'application/json'
         self.response.write(json.dumps(stats))
 
+
 app = webapp2.WSGIApplication([
-        ('/datadog', DatadogStats),
-        ])
+    ('/datadog', DatadogStats),
+])
