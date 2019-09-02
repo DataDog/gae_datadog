@@ -9,7 +9,8 @@ git clone https://github.com/DataDog/gae_datadog
 
 ## app.yaml setup
 
-You need to serve the Datadog requests to the Datadog module, include in your app.yaml:
+You need to serve the Datadog requests to the Datadog module, include in your `app.yaml`:
+
 ```yaml
 handlers:
 # Should probably be at the beginning of the list
@@ -18,10 +19,12 @@ handlers:
   script: gae_datadog.datadog.app
 ```
 
-Set your API key from the [integration settings](https://app.datadoghq.com/account/settings#integrations/google_app_engine) on Datadog
+Then set your `<DATADOG_API_KEY>` key from the [integration settings](https://app.datadoghq.com/account/settings#api) on Datadog in your `app.yaml`:
+
 ```yaml
 env_variables:
-    DATADOG_API_KEY: 'YOURAPIKEY'
+    DATADOG_API_KEY: '<DATADOG_API_KEY>'
 ```
 
-See the [Datadog Libraries page](https://docs.datadoghq.com/libraries) for a list of all official and community-contributed API and DogStatsD client libraries to send custom metrics to Datadog.
+
+**Note**: To send custom metrics to Datadog, see the [Datadog Libraries documentation page](https://docs.datadoghq.com/libraries) for a list of all official and community-contributed API and DogStatsD client libraries.
