@@ -24,6 +24,4 @@ env_variables:
     DATADOG_API_KEY: 'YOURAPIKEY'
 ```
 
-## Use custom metrics with dogapi
-
-This [gist](https://gist.github.com/LeoCavaille/bb4379d628db2fa6e102) will show you an example of how to use custom metrics in your code.
+See the [Datadog Libraries page](https://docs.datadoghq.com/libraries) for a list of all official and community-contributed API and DogStatsD client libraries to send custom metrics to Datadog.
