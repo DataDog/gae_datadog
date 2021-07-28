@@ -1,7 +1,7 @@
 # Note
 This integration of Google App Engine (GAE) with Datadog is outdated and is no longer supported. For the latest integration procedure, follow the documentation [here](https://docs.datadoghq.com/integrations/google_app_engine/).
 
-# Use Datadog on Google App Engine (Depracated)
+# Use Datadog on Google App Engine (Deprecated)
 
 ## Download the Datadog GAE module
 
